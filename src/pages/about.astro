@@ -1,5 +1,26 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+  firstName: "Greg",
+  country: "United States",
+  occupation: "Senior UX Designer",
+  hobbies: ["photography", "birdwatching", "flatwaterkayaking"],
+};
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Astro",
+  "Markdown",
+  "Technical Writing",
+  "UX Strategy",
+];
+
+const happy = true;
+const finished = true;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,14 +29,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    
-    <h1>About Me</h1>
+
+    <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>
@@ -27,5 +48,25 @@
       This site will update as I complete more of the tutorial, so keep checking
       back and see how my journey is going!
     </p>
+
+    <p>Here are a few facts about me:</p>
+
+    {happy && <p>I am happy to be learing Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+
+    {goal && <p>My goal is to finish in less than three days.</p>}
+
+    <ul>
+      <li>First Name: {identity.firstName}</li>
+      <li>Country: {identity.country}</li>
+      <li>Occupation: {identity.occupation}</li>
+      <li>Hobbies: {identity.hobbies.join(", ")}</li>
+    </ul>
+
+    <p>My skills include:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
   </body>
 </html>
